@@ -24,12 +24,13 @@
 	<title>Login</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
+	<link href="../images/favicon.png" rel="icon" type="image/png" />
 </head>
 <body ng-app="appLogin">
 	<div class="container" ng-controller="controladorLogin">
 		<div class="row">
 			<div class="col m6 offset-m3">
-				<div class="form-login">
+				<form class="form-login">
 					<div class="row">
 						<div class="col s8 offset-s2">
 							<img class="responsive-img" src="../images/login.png">
@@ -50,8 +51,8 @@
 					</div>
 					<div class="row">
 						<div class="input-field col s10 offset-s1">
-				          	<input id="password" name="password" type="password" ng-model="password">
-	          				<label for="password">Contraseña</label>
+				          	<input id="password" name="password" type="password" ng-model="password" ng->
+	          				<label for="password">Documento de identidad</label>
 				        </div>
 					</div>
 					<div class="row">
@@ -61,7 +62,7 @@
 							</button>
 						</center>
 					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>

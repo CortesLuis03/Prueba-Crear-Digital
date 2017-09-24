@@ -1,3 +1,51 @@
 .form-login{
 	margin-top: 20%;
 }
+
+.opciones{
+	width: 200px !important;   
+	top: 64px !important;    
+	right: 0px !important;
+}
+
+.logo {
+	padding: 2px 10px;
+	height: 64px !important;
+}
+
+body.index {
+	background-color: #ffeced;
+}
+
+.side-nav {
+	background-color: #EE6E73;
+}
+
+.side-nav li a {
+	color: #FFFFFF;
+}
+
+.inicio {
+	padding: 10% 2%;
+}
+
+.page {
+	padding-top: 10%;
+}
+
+table thead tr td, table tbody tr td{
+	text-align: center;
+}
+
+thead {
+	background-color: #EE6E73;
+	color: #FFFFFF !important;
+}
+
+@media (max-width: 600px) {
+
+	.logo {
+		height: 56px !important;
+	}
+
+}

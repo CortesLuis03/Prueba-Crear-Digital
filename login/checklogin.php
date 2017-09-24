@@ -15,7 +15,7 @@
 
 	if (count($filaUser) > 0) {
 
-		if($filaUser[0]['user_password'] == $password){
+		if($filaUser[0]['user_nit'] == $password){
 
 			$validacion = iniciarSesion($codigo, $password, $filaUser);
 
@@ -44,7 +44,6 @@
 	    $_SESSION['user_nombre'] = $datos[0]['user_nombre'];
 	    $_SESSION['user_codigo'] = $datos[0]['user_codigo'];
 	    $_SESSION['user_nit'] = $datos[0]['user_nit'];
-	    $_SESSION['user_password'] = $datos[0]['user_password'];
 	    $_SESSION['rol_id'] = $datos[0]['rol_id'];
 	    $_SESSION['start'] = time();
 	    $_SESSION['expire'] = $_SESSION['start'] + (600 * 60);
