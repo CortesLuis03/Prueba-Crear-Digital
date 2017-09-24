@@ -1,13 +1,13 @@
 <div class="page" ng-controller="controladorUsuarios">
 	<div class="container z-depth-5">
 		<div class="row">
-			<div class="col s10 offset-s1">
+			<div class="col s12">
 				<div class="input-field col m12 s12">
 					<i class="material-icons prefix">search</i>
-		          	<input id="buscarElectiva" type="text" class="validate" ng-model="busquedaUsuario" ng-keyup="buscarUsuario($event);">
+		          	<input id="buscarElectiva" type="text" class="validate" ng-model="busquedaUsuario" ng-change="buscarUsuario($event);">
 		          	<label for="buscarElectiva">Buscar usuario por nombre o código...</label>
 		        </div>
-		        <div style="overflow-x: auto; width: 100%;" ng-show="busquedaUsuario != '' && busquedaUsuario != null">
+		        <div style="overflow-x: scroll; width: 100%;" ng-show="busquedaUsuario != '' && busquedaUsuario != null">
 					<table class="bordered col m12 s12" style="margin: 30px 0px;">
 						<thead>
 							<tr>

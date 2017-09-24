@@ -2,7 +2,7 @@
 	session_start();
 ?>
 <div class="page" ng-controller="controladorElectivas">
-	<div class="container z-depth-5">
+	<div class="container">
 		<div class="row">
 			<div class="col s12">
 <?php
@@ -13,7 +13,7 @@
 	          	<input id="buscarElectiva" type="text" class="validate" ng-model="buscarElectiva">
 	          	<label for="buscarElectiva">Buscar...</label>
 	        </div>
-	        <div style="overflow-x: auto; width: 100%;">
+	        <div style="overflow-x: scroll; width: 100%;">
 				<table class="bordered col m12 s12" style="margin: 30px 0px;">
 					<thead>
 						<tr>
@@ -115,7 +115,7 @@
 				    </select>
 	        	</div>
 	        </div>
-	        <div style="overflow-x: auto; width: 100%;">
+	        <div style="overflow-x: scroll; width: 100%;">
 				<table class="bordered col m12 s12" style="margin: 30px 0px;">
 					<thead>
 						<tr>
@@ -133,12 +133,12 @@
 							<td>{{tablaElectivas.elec_descripcion}}</td>
 							<td>{{tablaElectivas.elec_dis_cupo}}</td>
 							<td>
-								<button ng-class="{disabled: tablaElectivas.elec_dis_cupo == 0}" class="btn waves-effect waves-light" name="action" ng-click="accionElectiva('inscribirme-modal', tablaElectivas.elec_id);">Inscribirme
+								<button ng-class="{disabled: tablaElectivas.elec_dis_cupo == 0}" class="btn waves-effect waves-light" name="action" ng-click="accionElectiva('inscribirme-modal', tablaElectivas.elec_id);">Inscribirse
 							    	<i class="material-icons right">class</i>
 							  	</button>
 							</td>
 							<td>
-								<button class="btn waves-effect waves-light" name="action" ng-click="accionElectiva('ver-inscritos', tablaElectivas.elec_id);">Inscritos
+								<button class="btn waves-effect waves-light" name="action" ng-click="accionElectiva('ver-inscritos', tablaElectivas.elec_id);">Matriculados
 							    	<i class="material-icons right">people</i>
 							  	</button>
 							</td>
@@ -155,9 +155,9 @@
 			    </select>
 				<dir-pagination-controls pagination-id="pagElectivas" direction-links="true" boundary-links="true" class="buttons ng-isolate-scope"></dir-pagination-controls>
 			</div>
-			<div id="inscritos" class="modal">
+			<div id="inscritos" class="modal modal-fixed-footer">
 		    	<div class="modal-content">
-		      		<h4 class="center-align">Inscritos</h4>
+		      		<h4 class="center-align">Matriculados</h4>
 		      		<div class="col m12 s12 center-align" ng-show="spinner_inscritos" style="margin-top: 80px;">
 			        	<div class="preloader-wrapper big active">
 					    	<div class="spinner-layer spinner-blue-only">
@@ -175,22 +175,21 @@
 				  	</div>
 		      		<br><br>
 		      		<div class="collection">
-		      			<a class="collection-item center-align" ng-show="datosUsuarios == null"><h5>Ninguno...</h5></a>
-					    <a class="collection-item center-align" ng-repeat="listaUsuarios in datosUsuarios"><h5>{{listaUsuarios.user_nombre}} - Cód. {{listaUsuarios.user_codigo}}</h5></a>
+		      			<a class="collection-item center-align" ng-show="datosUsuarios == null">Ninguno...</a>
+					    <a class="collection-item center-align" ng-repeat="listaUsuarios in datosUsuarios">{{listaUsuarios.user_nombre}} - Cód. {{listaUsuarios.user_codigo}}</a>
 					</div>
 	    		</div>
 		    	<div class="modal-footer">
-		    		<a class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="accionElectiva('inscribirme')">¡Inscribete ahora!</a>
 		      		<a href="" class="modal-action modal-close waves-effect waves-green btn-flat">Cerrar</a>
 		   		</div>
 			</div>
-	  		<div id="confirm-inscripcion" class="modal">
+	  		<div id="confirm-inscripcion" class="modal modal-fixed-footer">
 		    	<div class="modal-content">
 		      		<h4 class="center-align">¿Está seguro de inscribirte en esta electiva?</h4>
 	    		</div>
 		    	<div class="modal-footer">
 		      		<a href="" class="modal-action modal-close waves-effect waves-green btn-flat">No</a>
-		      		<a class="waves-effect waves-green btn-flat" ng-click="accionElectiva('inscribirme')">Si</a>
+		      		<a class="modal-action waves-effect waves-green btn-flat" ng-click="accionElectiva('inscribirme')">Si</a>
 		   		</div>
 	  		</div>
 <?php

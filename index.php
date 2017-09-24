@@ -1,6 +1,11 @@
 <?php
 	session_start();
-?><!DOCTYPE html>
+
+	if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+
+  		
+?>
+<!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="css/materialize.css">
@@ -17,6 +22,7 @@
 	<title>Sistema de material electivas</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
+	<meta name="theme-color" content="#26A69A" />
 	<link href="images/favicon.png" rel="icon" type="image/png" />
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -34,7 +40,7 @@
 		    <a href="#/" class="brand-logo"><img class="responsive-img logo" src="images/logo.png"></a>
 		    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		    <ul class="right hide-on-med-and-down">
-		      	<li><a href="#electivas">Electivas</a></li>
+		      	<li><a href="#electivas">Materias</a></li>
 		      	<li><a href="#usuarios">Usuarios</a></li>
 		      	<li><a class="dropdown-button" href="#!" data-activates="opciones"><i class="material-icons right">arrow_drop_down</i></a></li>
 		    </ul>
@@ -50,7 +56,7 @@
 		            	</div>
 		          	</div>
 		      	</li>
-		        <li><a href="#electivas"><i class="material-icons">check</i>Electivas</a></li>
+		        <li><a href="#electivas"><i class="material-icons">check</i>Materias</a></li>
 		        <li><a href="#usuarios"><i class="material-icons">person</i>Usuarios</a></li>
 		    </ul>
 		</div>
@@ -59,3 +65,12 @@
 	</div>
 </body>
 </html>
+<?php
+
+	} else {
+
+		echo "<script language='javascript'>window.location='login/'</script>";
+
+	}
+
+?>

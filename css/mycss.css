@@ -1,5 +1,10 @@
 .form-login{
-	margin-top: 20%;
+	margin-top: 12%;
+	padding: 10% 0%;
+}
+
+.img-login {
+	width: 100px;
 }
 
 .opciones{

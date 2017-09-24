@@ -261,17 +261,13 @@ app.controller('controladorUsuarios', function($scope, $http, $timeout){
         $scope.spinner_usuarios = true;
         $scope.datosUsuarios = [];
 
-        if(event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode == 190 || event.keyCode == 32 || event.keyCode == 13 || event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode >= 96 && event.keyCode <= 105 || event.keyCode == 8){
+        $timeout.cancel($scope.time);
 
-            $timeout.cancel($scope.time);
+        $scope.time = $timeout(function(){
 
-            $scope.time = $timeout(function(){
+            $scope.consultarUsuarios($scope.busquedaUsuario);
 
-                $scope.consultarUsuarios($scope.busquedaUsuario);
-
-            },1200);
-
-        }
+        },1200);
 
     }
 

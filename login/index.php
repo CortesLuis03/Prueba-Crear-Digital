@@ -25,15 +25,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 	<link href="../images/favicon.png" rel="icon" type="image/png" />
+	<meta name="theme-color" content="#26A69A" />
 </head>
 <body ng-app="appLogin">
 	<div class="container" ng-controller="controladorLogin">
 		<div class="row">
-			<div class="col m6 offset-m3">
-				<form class="form-login" ng-show="formulario">
+			<div class="col m6 s12 offset-m3">
+				<form class="form-login z-depth-5" ng-show="formulario">
 					<div class="row">
-						<div class="col s8 offset-s2">
-							<img class="responsive-img" src="../images/login.png">
+						<div class="col s8 offset-s2 center-align">
+							<img class="responsive-img img-login" src="../images/login.png">
 						</div>
 					</div>
 					<div class="row">
@@ -65,10 +66,10 @@
 						</center>
 					</div>
 				</form>
-				<form class="form-login" ng-hide="formulario">
+				<form class="form-login z-depth-5" ng-hide="formulario">
 					<div class="row">
-						<div class="col s8 offset-s2">
-							<img class="responsive-img" src="../images/register.png">
+						<div class="col s8 offset-s2 center-align">
+							<img class="responsive-img img-login" src="../images/register.png">
 						</div>
 					</div>
 					<div class="row">
