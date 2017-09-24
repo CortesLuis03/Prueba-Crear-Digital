@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+	session_start();
+?><!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="css/materialize.css">
@@ -41,7 +43,7 @@
 		          	<div class="card" style="margin-top: 0px;">
 		            	<div class="card-image">
 		              		<img src="images/fondo.jpg">
-		              		<span class="card-title"></span>
+		              		<span class="card-title"><?php echo $_SESSION['user_nombre'];?></span>
 		            	</div>
 		            	<div class="card-action" style="background-color: #EE6E73;">
 		              		<a href="login/logout.php" style="color: #FFFFFF;">Cerrar sesión</a>
