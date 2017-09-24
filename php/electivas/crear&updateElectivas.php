@@ -1,7 +1,5 @@
 <?php
 
-	session_start();
-
 	include('../conexion.php');
 
 	$datos = json_decode(file_get_contents('php://input'));
@@ -89,55 +87,6 @@
 			$condicion = "`elec_id`=$id";
 
 			down($tabla, $condicion);
-
-		break;
-		case 'inscribirme':
-
-			$elec_id = $datos->id;
-
-			$seleccion = "`elec_dis_cupo`";
-			$tabla = "`electivas`";
-			$condicion = "`elec_id` = $elec_id";
-
-			$datos = listar($seleccion, $tabla, $condicion);
-
-			$cupos_dis = $datos[0]['elec_dis_cupo'];
-
-			if($cupos_dis > 0){
-
-				$user_id = $_SESSION['user_id'];
-
-				$seleccion = "*";
-				$tabla = "`users_x_electiva`";
-				$condicion = "`user_id` = $user_id AND `elec_id` = $elec_id";
-
-				$datos = listar($seleccion, $tabla, $condicion);
-
-				if(count($datos) == 0){
-
-					$tabla = "`users_x_electiva`";
-					$campos = "`user_id`, `elec_id`";
-					$valores = "$user_id, $elec_id";
-
-					insertar($tabla, $campos, $valores);
-
-					$new_cupos = $cupos_dis - 1;
-
-					$tabla = "`electivas`";
-					$valores = "`elec_dis_cupo` = $new_cupos";
-					$condicion = "`elec_id` = $elec_id";
-
-					update($tabla, $valores, $condicion);
-
-					echo 'Inscrito';
-
-				} else {
-					echo 'Ya estas inscrito';
-				}
-
-			} else {
-				echo 'Cupo lleno';
-			}
 
 		break;
 

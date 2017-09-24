@@ -22,19 +22,12 @@ app.controller('controladorElectivas', function($scope, $http, $timeout){
     $scope.itemElectivas = '5';
     $('textarea#descripcion').characterCounter();
     $('select').material_select();
-    $scope.profesor = 'all';
 
     $scope.listaElectivas = function(){
 
         $http.post('php/electivas/lista-electivas.php',{'ctrl':'electivas'}).success(function(datos){
 
             $scope.datosElectivas = datos;
-
-        });
-
-        $http.post('php/electivas/lista-electivas.php',{'ctrl':'profesores'}).success(function(datos){
-
-            $scope.datosProfesores = datos;
 
         });
 
@@ -168,71 +161,7 @@ app.controller('controladorElectivas', function($scope, $http, $timeout){
                 });
 
             break;
-            case 'ver-inscritos':
 
-                $scope.spinner_inscritos = true;
-                $('#inscritos').modal().modal('open');
-
-                $scope.id = id;
-
-                $http.post('php/electivas/lista-electivas.php', {'ctrl':'ver-inscritos', 'id':id}).success(function(datos){
-
-                    if(datos.length > 0){
-                        $scope.datosUsuarios = datos;
-                    } else {
-                        $scope.datosUsuarios = null;
-                    }
-                    $scope.spinner_inscritos = false;
-
-                });
-
-            break;
-            case 'inscribirme-modal':
-
-                $scope.id = id;
-                $('#confirm-inscripcion').modal().modal('open');                
-
-            break;
-            case 'inscribirme':
-
-                $http.post('php/electivas/crear&updateElectivas.php', {'ctrl':'inscribirme', 'id':$scope.id}).success(function(respuesta){
-
-                    switch(respuesta){
-                        case 'Inscrito':
-
-                            swal('Incrito', 'Has sido incrito en esta electiva', 'success');
-
-                        break;
-                        case 'Ya estas inscrito':
-
-                            swal('Ya estas inscrito', 'Ya has elegido esta electiva', 'info');
-
-                        break;
-                        case 'Cupo lleno':
-
-                            swal('Cupo lleno','Lo sentimos pero ya no quedan cupos disponibles','info');
-
-                        break;
-                    }
-                    $('#confirm-inscripcion').modal().modal('close'); 
-                    $scope.listaElectivas();
-
-                });
-
-            break;
-
-        }
-
-    }
-
-    $scope.filtroProfesor = function(value){
-
-        if($scope.profesor == 'all'){
-            return true;
-        } else if (value.elec_profesor === $scope.profesor){
-            return true;
-        } else {
-            return false;
         }
 
     }
@@ -241,53 +170,6 @@ app.controller('controladorElectivas', function($scope, $http, $timeout){
 
 app.controller('controladorUsuarios', function($scope, $http, $timeout){
 
-    $scope.consultarUsuarios = function(criterio){
-
-        $http.post('php/usuarios/lista-usuarios.php', {'ctrl':'usuarios', 'criterio':criterio}).success(function(datos){
-
-            if(datos.length > 0){
-                $scope.datosUsuarios = datos;
-            } else {
-                $scope.datosUsuarios = null;
-            }            
-            $scope.spinner_usuarios = false;
-
-        });
-
-    }
-
-    $scope.buscarUsuario = function(event){
-
-        $scope.spinner_usuarios = true;
-        $scope.datosUsuarios = [];
-
-        if(event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode == 190 || event.keyCode == 32 || event.keyCode == 13 || event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode >= 96 && event.keyCode <= 105 || event.keyCode == 8){
-
-            $timeout.cancel($scope.time);
-
-            $scope.time = $timeout(function(){
-
-                $scope.consultarUsuarios($scope.busquedaUsuario);
-
-            },1200);
-
-        }
-
-    }
-
-    $scope.verElectivas = function(id){
-
-        $http.post('php/usuarios/lista-usuarios.php',{'ctrl':'electivas', 'id':id}).success(function(datos){
-
-            if(datos.length > 0){
-                $scope.datosElectivas = datos;
-            } else {
-                $scope.datosElectivas = null;
-            }
-            $('#electivas').modal().modal('open');
-
-        });
-
-    }
+    
 
 });

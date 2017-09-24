@@ -30,7 +30,7 @@
 	<div class="container" ng-controller="controladorLogin">
 		<div class="row">
 			<div class="col m6 offset-m3">
-				<form class="form-login" ng-show="formulario">
+				<form class="form-login">
 					<div class="row">
 						<div class="col s8 offset-s2">
 							<img class="responsive-img" src="../images/login.png">
@@ -60,49 +60,6 @@
 							<button class="btn waves-effect waves-light" type="submit" name="action" ng-click="validarLogin()">Ingresar
 							    <i class="material-icons right">send</i>
 							</button>
-							<br><br>
-							<a href="" ng-click="formulario = false; nombre = ''; codigo_reg = ''; documento = '';">¿Aún no estás registrado?</a>
-						</center>
-					</div>
-				</form>
-				<form class="form-login" ng-hide="formulario">
-					<div class="row">
-						<div class="col s8 offset-s2">
-							<img class="responsive-img" src="../images/register.png">
-						</div>
-					</div>
-					<div class="row">
-						<div class="col s12">
-							<h5 class="center-align">
-								Ingresa tus datos
-							</h5>
-						</div>
-					</div>
-					<div class="row">
-						<div class="input-field col s10 offset-s1">
-				          	<input id="nombre" name="nombre" type="text" ng-model="nombre">
-				          	<label for="nombre">Nombre completo</label>
-				        </div>
-					</div>
-					<div class="row">
-						<div class="input-field col s10 offset-s1">
-				          	<input id="codigo_reg" name="codigo_reg" type="text" ng-model="codigo_reg">
-				          	<label for="codigo_reg">Código universitario</label>
-				        </div>
-					</div>
-					<div class="row">
-						<div class="input-field col s10 offset-s1">
-				          	<input id="documento" name="documento" type="text" ng-model="documento">
-	          				<label for="documento">Documento de identidad</label>
-				        </div>
-					</div>
-					<div class="row">
-						<center>
-							<button class="btn waves-effect waves-light" type="submit" name="action" ng-click="registrarUsuario()">Enviar
-							    <i class="material-icons right">send</i>
-							</button>
-							<br><br>
-							<a href="" ng-click="formulario = true;"><i class="material-icons">arrow_back</i></a>
 						</center>
 					</div>
 				</form>
