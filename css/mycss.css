@@ -13,24 +13,12 @@
 	height: 64px !important;
 }
 
-body.index {
-	background-color: #ffeced;
-}
-
-.side-nav {
-	background-color: #EE6E73;
-}
-
-.side-nav li a {
-	color: #FFFFFF;
-}
-
 .inicio {
 	padding: 10% 2%;
 }
 
 .page {
-	padding-top: 10%;
+	padding: 10% 0%;
 }
 
 table thead tr td, table tbody tr td{

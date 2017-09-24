@@ -4,6 +4,7 @@ app.controller('controladorLogin', function($scope, $http, $timeout){
 
     $scope.codigo = '';
     $scope.password = '';
+    $scope.formulario = true;
 
     //var regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
@@ -33,79 +34,35 @@ app.controller('controladorLogin', function($scope, $http, $timeout){
 
     };
 
-    /*$scope.enviarCorreo = function(){
+    $scope.registrarUsuario = function(){
 
-        $scope.button = true;
+        if($scope.nombre.length > 0 && $scope.codigo_reg.length > 0 && $scope.documento.length > 0){
 
-        if($scope.correo != '' || $scope.correo != null){
+            $http.post('checkuser.php',{'ctrl':'validar-usuario','codigo':$scope.codigo_reg}).success(function(validacion){
 
-            if(regex.test($scope.correo) == true){
+                if(validacion == 'No existe'){
 
-                $http.post('forgot-password.php',{'correo':$scope.correo}).success(function(validacion){
+                    $http.post('checkuser.php',{'ctrl':'crear-usuario', 'nombre':$scope.nombre, 'codigo':$scope.codigo_reg, 'documento':$scope.documento}).success(function(){
 
-                    if(validacion == 1 || validacion == '1'){
+                        swal('Registro exitoso', 'Te has registrado de forma correcta', 'success');
+                        $scope.formulario = true;
 
-                        $scope.texto_alerta = "Se te ha enviado tu contraseña a tu correo, por favor revisa tu bandeja de entrada";
-                        $scope.mensaje_alerta = true;
-                        $timeout(function(){
+                    })
 
-                            $scope.mensaje_alerta = false;
-                            $scope.login_form = false;
+                } else if( validacion == 'Existe'){
 
-                        },4000);
+                    swal('Usuario registrado', 'Este código ya ha sido registrado', 'error');
 
-                    } else if(validacion == 2 || validacion == '2'){
+                }
 
-                        $scope.texto_alerta = "Este correo no pertenece a ningún usuario registrado";
-                        $scope.button = false;
-                        $scope.mensaje_alerta = true;
-                        $timeout(function(){
-
-                            $scope.mensaje_alerta = false;
-
-                        },3000);
-
-                    } else if(validacion == 3 || validacion == '3') {
-
-                        $scope.texto_alerta = "Faltan campos por llenar";
-                        $scope.button = false;
-                        $scope.mensaje_alerta = true;
-                        $timeout(function(){
-
-                            $scope.mensaje_alerta = false;
-
-                        },2000);
-
-                    }
-
-                });
-
-            } else {
-
-                $scope.texto_alerta = "Ingresa un correo válido";
-                $scope.button = false;
-                $scope.mensaje_alerta = true;
-                $timeout(function(){
-
-                    $scope.mensaje_alerta = false;
-
-                },2000);
-
-            }
+            });
 
         } else {
 
-            $scope.texto_alerta = "Faltan campos por llenar";
-            $scope.button = false;
-            $scope.mensaje_alerta = true;
-            $timeout(function(){
+            swal('Faltan campos','Por favor ingresa los datos solicitados','warning');
+            
+        }          
 
-                $scope.mensaje_alerta = false;
-
-            },2000);
-
-        }
-
-    }*/
+    };
 
 });

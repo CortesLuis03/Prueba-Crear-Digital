@@ -24,7 +24,6 @@
 </head>
 <body ng-app="app" class="index">
 	<ul id="opciones" class="dropdown-content opciones">
-	  	<li><a href="">Prefil</a></li>
 	  	<li class="divider"></li>
 	  	<li><a href="login/logout.php">Cerrar sesión</a></li>
 	</ul>
@@ -34,7 +33,7 @@
 		    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		    <ul class="right hide-on-med-and-down">
 		      	<li><a href="#electivas">Electivas</a></li>
-		      	<li><a href="#electivas">Usuarios</a></li>
+		      	<li><a href="#usuarios">Usuarios</a></li>
 		      	<li><a class="dropdown-button" href="#!" data-activates="opciones"><i class="material-icons right">arrow_drop_down</i></a></li>
 		    </ul>
 		    <ul class="side-nav" id="mobile-demo">
@@ -44,19 +43,17 @@
 		              		<img src="images/fondo.jpg">
 		              		<span class="card-title"></span>
 		            	</div>
-		            	<div class="card-action">
-		              		<a href="login/logout.php">Cerrar sesión</a>
+		            	<div class="card-action" style="background-color: #EE6E73;">
+		              		<a href="login/logout.php" style="color: #FFFFFF;">Cerrar sesión</a>
 		            	</div>
 		          	</div>
 		      	</li>
-		        <li><a href="#electivas">Electivas</a></li>
-		        <li><a href="#electivas">Usuarios</a></li>
+		        <li><a href="#electivas"><i class="material-icons">check</i>Electivas</a></li>
+		        <li><a href="#usuarios"><i class="material-icons">person</i>Usuarios</a></li>
 		    </ul>
 		</div>
 	</nav>
-	<div class="container">
-		<div ng-view>
-		</div>
+	<div ng-view>
 	</div>
 </body>
 </html>
