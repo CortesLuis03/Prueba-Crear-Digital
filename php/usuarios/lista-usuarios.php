@@ -18,7 +18,7 @@
 
 			$datos = listar($seleccion, $tabla, $condicion);
 
-			$datos = utf8_converter($datos);
+			//$datos = utf8_converter($datos);
 
 			echo json_encode($datos);
 
@@ -34,7 +34,7 @@
 
 			$datos = listar($seleccion, $tabla, $condicion);
 
-			$datos = utf8_converter($datos);
+			//$datos = utf8_converter($datos);
 
 			echo json_encode($datos);
 

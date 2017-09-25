@@ -92,14 +92,6 @@
 
 			down($seleccion, $tabla, $condicion);
 
-			/*DELETE c, cc, ca 
-FROM clientes c 
-LEFT JOIN clientes_compra cc 
-    ON c.dni = cc.dni 
-LEFT JOIN clientes_alquiler ca 
-    ON ca.dni = c.dni 
-WHERE c.dni = "13225217P";*/
-
 		break;
 		case 'inscribirme':
 
