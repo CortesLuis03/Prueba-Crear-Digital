@@ -104,11 +104,11 @@
 
 	}
 
-	function down($tabla, $condicion){
+	function down($seleccion, $tabla, $condicion){
 
 		$conexion = conexion();
 
-		$resultado = $conexion->query("DELETE FROM $tabla WHERE $condicion");
+		$resultado = $conexion->query("DELETE $seleccion FROM $tabla WHERE $condicion");
 
 		cerrarConexion($conexion);
 
